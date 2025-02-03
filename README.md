@@ -1,6 +1,3 @@
-Hi!
-I'm Lakshin, a teenage developer with 3+ years of experience in Roblox Studio.
-My online name is QuantumDev.
-I’m passionate about coding, designing, and creating innovative projects. 
-My goal is to become a Full Stack Developer and start my own company in the future!
-I have a website at quantumdev.rf.gd
+Hello!
+This week's update: I'm working on creating a portfolio website for myself. I have lots of ideas but can't find a way to implement them. I don't have any money so I'm using InfinityFree to get a subdomain. But it doesn't have that many options. So I'm trying to find creative ways to implement my ideas. Shoutout to ChatGPT for helping me so much!
+You can check out my website so far at: quantumdev.rf.gd
