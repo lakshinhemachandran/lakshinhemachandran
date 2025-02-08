@@ -1,4 +1,4 @@
-<img align=middle src="https://avatars.githubusercontent.com/u/118491175?v=4" alt="Quantum" width="500" height="600">
+<img align=middle src="https://avatars.githubusercontent.com/u/118491175?v=4" alt="Quantum" width="128" height="128">
 
 <h1 align="center">QuantumDev</h1>
 <h3 align="center">A passionate UI Developer in Roblox Studio</h3>
