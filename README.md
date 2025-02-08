@@ -1,4 +1,5 @@
-<img align="middle" src="https://avatars.githubusercontent.com/u/118491175?v=4" alt="Quantum" width="128" height="128">
+<img src="https://avatars.githubusercontent.com/u/118491175?v=4" alt="Quantum" width="128" height="128" style="display: block; margin-left: auto; margin-right: auto;">
+****
 
 
 <h1 align="center">QuantumDev</h1>
