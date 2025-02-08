@@ -1,4 +1,4 @@
-![Profile Picture](https://quantumdev.rf.gd/gallery_gen/quantum-dev-favicon.png)
+![Profile Picture](https://yt3.googleusercontent.com/s2biSQ45avQeRfpLopl7GEuNoKro1vDg3ejQvBaBHRVIrv2wI0BHvS3A5cqLqmWS7VQ0TVw=s160-c-k-c0x00ffffff-no-rj)
 
 
 # QuantumDev
