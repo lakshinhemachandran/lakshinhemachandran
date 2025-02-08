@@ -1,4 +1,4 @@
-![Profile Picture](https://yt3.googleusercontent.com/s2biSQ45avQeRfpLopl7GEuNoKro1vDg3ejQvBaBHRVIrv2wI0BHvS3A5cqLqmWS7VQ0TVw=s160-c-k-c0x00ffffff-no-rj)
+<img align=middle src="https://avatars.githubusercontent.com/u/118491175?v=4" alt="Quantum" width="500" height="600">
 
 <h1 align="center">QuantumDev</h1>
 <h3 align="center">A passionate UI Developer in Roblox Studio</h3>
