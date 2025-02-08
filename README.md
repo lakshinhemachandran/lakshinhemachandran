@@ -16,8 +16,6 @@ My goal is to become a Full Stack Developer and start my own company in the futu
 
 If you're looking to hire me for my Roblox Studio skills, feel free to reach out through my Discord server linked below.
 
-> _"Don't Give Up On Life Or Life Will Give Up On You"_  
-> - Lakshin
 
 ---
 
