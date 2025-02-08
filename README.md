@@ -1,4 +1,4 @@
-![Profile Picture](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Red_star.svg/220px-Red_star.svg.png)
+![Profile Picture](https://www.quantumdev.rf.gd/gallery_gen/quantum-dev-favicon.png)
 
 # QuantumDev
 
@@ -30,6 +30,4 @@ If you're looking to hire me for my Roblox Studio skills, feel free to reach out
 [![Roblox](https://img.icons8.com/ios-filled/50/ffffff/roblox.png)](https://www.roblox.com/users/3314294422/profile)
 
 ---
-### Hire Me:  
-[Click here to contact me](https://discord.gg/ATk4wsJP42)
 
