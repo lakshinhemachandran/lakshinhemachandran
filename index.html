@@ -621,24 +621,27 @@ By using any services, products, or content provided by the Provider, you acknow
       }
     }
 
-    async function fetchDiscordStatus() {
-  const userId = '1333091618055655448'; // Your Discord user ID
+    function setupDiscordStatus() {
+  const userId = '1333091618055655448';
   const discordStatus = document.getElementById('discordStatus');
   
   if (!discordStatus) {
-    console.error('Discord status container not found! Make sure you have an element with id="discordStatus"');
+    console.error('Discord status container not found!');
     return;
   }
 
-  try {
-    // First, verify the API is accessible
-    const testResponse = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
-    if (!testResponse.ok) {
-      throw new Error(`API Error: ${testResponse.status}`);
-    }
-
-    // If API is accessible, proceed with creating the display
-    const apiUrl = `https://lanyard-profile-readme.vercel.app/api/${userId}?` + new URLSearchParams({
+  // Create the iframe
+  const iframe = document.createElement('iframe');
+  iframe.style.width = '100%';
+  iframe.style.height = '160px'; // Adjust as needed
+  iframe.style.border = 'none';
+  iframe.style.borderRadius = '10px';
+  iframe.style.overflow = 'hidden';
+  
+  // Function to update iframe source with timestamp to prevent caching
+  function updateIframe() {
+    const timestamp = new Date().getTime();
+    const params = new URLSearchParams({
       theme: 'dark',
       bg: '2f3136',
       animated: true,
@@ -654,60 +657,32 @@ By using any services, products, or content provided by the Provider, you acknow
       hideBadges: false,
       hideProfile: false,
       hideActivity: 'whenNotUsed',
-      hideSpotify: false
+      hideSpotify: false,
+      _t: timestamp // Add timestamp to prevent caching
     });
-
-    // Create Discord card container
-    const discordCard = document.createElement('div');
-    discordCard.className = 'discord-card';
     
-    // Create and append the image
-    const presenceImg = document.createElement('img');
-    presenceImg.src = apiUrl;
-    presenceImg.alt = 'Discord Presence';
-    presenceImg.style.width = '100%';
-    presenceImg.style.height = 'auto';
-    presenceImg.style.borderRadius = '10px';
-
-    // Add error handling for image loading
-    presenceImg.onerror = () => {
-      console.error('Failed to load Discord status image');
-      discordStatus.innerHTML = 'Failed to load Discord status.';
-    };
-    
-    // Make it clickable to go to Discord profile
-    const linkWrapper = document.createElement('a');
-    linkWrapper.href = `https://discord.com/users/${userId}`;
-    linkWrapper.target = '_blank';
-    linkWrapper.rel = 'noopener noreferrer'; // Security best practice
-    linkWrapper.appendChild(presenceImg);
-    
-    // Add to the card
-    discordCard.appendChild(linkWrapper);
-    
-    // Clear and update the discord status content
-    discordStatus.innerHTML = '';
-    discordStatus.appendChild(discordCard);
-
-  } catch (error) {
-    console.error('Error fetching Discord status:', error);
-    discordStatus.innerHTML = `Failed to load Discord status: ${error.message}`;
+    iframe.src = `https://lanyard-profile-readme.vercel.app/api/${userId}?${params}`;
   }
-}
 
-// Initial fetch with error handling
-document.addEventListener('DOMContentLoaded', () => {
-  fetchDiscordStatus().catch(error => {
-    console.error('Initial fetch failed:', error);
-  });
+  // Initial load
+  updateIframe();
 
   // Update every second
-  setInterval(() => {
-    fetchDiscordStatus().catch(error => {
-      console.error('Periodic update failed:', error);
-    });
-  }, 1000);
-});
+  setInterval(updateIframe, 1000);
+
+  // Clear existing content and add iframe
+  discordStatus.innerHTML = '';
+  discordStatus.appendChild(iframe);
+
+  // Make the container clickable to go to Discord profile
+  discordStatus.onclick = () => {
+    window.open(`https://discord.com/users/${userId}`, '_blank', 'noopener,noreferrer');
+  };
+  discordStatus.style.cursor = 'pointer';
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', setupDiscordStatus);
   </script>
 </body>
 </html>
