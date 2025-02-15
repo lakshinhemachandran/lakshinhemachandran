@@ -387,6 +387,42 @@
   font-size: 0.9em;
 }
 
+.avatar-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.discord-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #18191c;
+  position: relative;
+  z-index: 1;
+}
+
+.avatar-decoration {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 110px;
+  height: 110px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 4px solid #2f3136;
+  z-index: 3;
+}
+
   </style>
 </head>
 <body>
@@ -592,9 +628,39 @@ By using any services, products, or content provided by the Provider, you acknow
       const data = await response.json();
       const userData = data.data;
       
-      // Update avatar
-      const avatarImg = document.getElementById('discordAvatar');
+    // Update avatar with decoration
+      const avatarContainer = document.getElementById('discordAvatar').parentElement;
+      
+      // Clear existing avatar
+      avatarContainer.innerHTML = '';
+      
+      // Create wrapper for avatar and decoration
+      const avatarWrapper = document.createElement('div');
+      avatarWrapper.className = 'avatar-wrapper';
+      
+      // Create avatar image
+      const avatarImg = document.createElement('img');
       avatarImg.src = `https://cdn.discordapp.com/avatars/${userData.discord_user.id}/${userData.discord_user.avatar}`;
+      avatarImg.alt = 'Discord Avatar';
+      avatarImg.className = 'discord-avatar';
+      
+      // Create decoration image if available
+      if (userData.discord_user.avatar_decoration_data) {
+        const decorationImg = document.createElement('img');
+        decorationImg.src = `https://cdn.discordapp.com/avatar-decorations/${userData.discord_user.id}/${userData.discord_user.avatar_decoration_data.asset}`;
+        decorationImg.alt = 'Avatar Decoration';
+        decorationImg.className = 'avatar-decoration';
+        avatarWrapper.appendChild(decorationImg);
+      }
+      
+      // Add avatar and status indicator
+      avatarWrapper.appendChild(avatarImg);
+      const statusIndicator = document.createElement('span');
+      statusIndicator.id = 'discordOnlineStatus';
+      statusIndicator.className = `status-indicator status-${userData.discord_status}`;
+      avatarWrapper.appendChild(statusIndicator);
+      
+      avatarContainer.appendChild(avatarWrapper);
       
       // Update username
       document.getElementById('discordUsername').textContent = userData.discord_user.global_name || userData.discord_user.username;
