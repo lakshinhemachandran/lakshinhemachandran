@@ -9,7 +9,7 @@
 
 - I'm Currently Working At [Loxly Shopping](https://discord.gg/K23X4NmJS5)
 
-- My Discord [Discord](https://discord.com/users/1333091618055655448)
+[![Discord Presence](https://lanyard.cnrad.dev/api/:1333091618055655448)](https://discord.com/users/:1333091618055655448)
 
 - 🤝 I’m looking for help with **Learning Roblox Studio Scripting**
 
