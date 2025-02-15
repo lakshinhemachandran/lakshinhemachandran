@@ -622,8 +622,22 @@ By using any services, products, or content provided by the Provider, you acknow
     }
 
     async function fetchDiscordStatus() {
+  const userId = '1333091618055655448'; // Your Discord user ID
+  const discordStatus = document.getElementById('discordStatus');
+  
+  if (!discordStatus) {
+    console.error('Discord status container not found! Make sure you have an element with id="discordStatus"');
+    return;
+  }
+
   try {
-    const userId = '1333091618055655448'; // Your Discord user ID
+    // First, verify the API is accessible
+    const testResponse = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
+    if (!testResponse.ok) {
+      throw new Error(`API Error: ${testResponse.status}`);
+    }
+
+    // If API is accessible, proceed with creating the display
     const apiUrl = `https://lanyard-profile-readme.vercel.app/api/${userId}?` + new URLSearchParams({
       theme: 'dark',
       bg: '2f3136',
@@ -654,32 +668,46 @@ By using any services, products, or content provided by the Provider, you acknow
     presenceImg.style.width = '100%';
     presenceImg.style.height = 'auto';
     presenceImg.style.borderRadius = '10px';
+
+    // Add error handling for image loading
+    presenceImg.onerror = () => {
+      console.error('Failed to load Discord status image');
+      discordStatus.innerHTML = 'Failed to load Discord status.';
+    };
     
     // Make it clickable to go to Discord profile
     const linkWrapper = document.createElement('a');
     linkWrapper.href = `https://discord.com/users/${userId}`;
     linkWrapper.target = '_blank';
+    linkWrapper.rel = 'noopener noreferrer'; // Security best practice
     linkWrapper.appendChild(presenceImg);
     
     // Add to the card
     discordCard.appendChild(linkWrapper);
     
-    // Replace the existing discord status content
-    const discordStatus = document.getElementById('discordStatus');
+    // Clear and update the discord status content
     discordStatus.innerHTML = '';
     discordStatus.appendChild(discordCard);
 
   } catch (error) {
     console.error('Error fetching Discord status:', error);
-    document.getElementById('discordStatus').innerHTML = 'Failed to load Discord status.';
+    discordStatus.innerHTML = `Failed to load Discord status: ${error.message}`;
   }
 }
 
-// Initial fetch
-fetchDiscordStatus();
+// Initial fetch with error handling
+document.addEventListener('DOMContentLoaded', () => {
+  fetchDiscordStatus().catch(error => {
+    console.error('Initial fetch failed:', error);
+  });
 
-// Update every minute
-setInterval(fetchDiscordStatus, 100);
+  // Update every second
+  setInterval(() => {
+    fetchDiscordStatus().catch(error => {
+      console.error('Periodic update failed:', error);
+    });
+  }, 1000);
+});
   </script>
 </body>
 </html>
