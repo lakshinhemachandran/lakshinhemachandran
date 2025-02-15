@@ -623,169 +623,52 @@ By using any services, products, or content provided by the Provider, you acknow
 
     async function fetchDiscordStatus() {
   try {
-    const response = await fetch('https://api.lanyard.rest/v1/users/1333091618055655448');
-    if (response.ok) {
-      const data = await response.json();
-      const userData = data.data;
-      
-    // Update avatar with decoration
-      const avatarContainer = document.getElementById('discordAvatar').parentElement;
-      
-      // Clear existing avatar
-      avatarContainer.innerHTML = '';
-      
-      // Create wrapper for avatar and decoration
-      const avatarWrapper = document.createElement('div');
-      avatarWrapper.className = 'avatar-wrapper';
-      
-      // Create avatar image
-      const avatarImg = document.createElement('img');
-      avatarImg.src = `https://cdn.discordapp.com/avatars/${userData.discord_user.id}/${userData.discord_user.avatar}`;
-      avatarImg.alt = 'Discord Avatar';
-      avatarImg.className = 'discord-avatar';
-      
-      // Create decoration image if available
-      if (userData.discord_user.avatar_decoration_data) {
-        const decorationImg = document.createElement('img');
-        decorationImg.src = `https://cdn.discordapp.com/avatar-decorations/${userData.discord_user.id}/${userData.discord_user.avatar_decoration_data.asset}`;
-        decorationImg.alt = 'Avatar Decoration';
-        decorationImg.className = 'avatar-decoration';
-        avatarWrapper.appendChild(decorationImg);
-      }
-      
-      // Add avatar and status indicator
-      avatarWrapper.appendChild(avatarImg);
-      const statusIndicator = document.createElement('span');
-      statusIndicator.id = 'discordOnlineStatus';
-      statusIndicator.className = `status-indicator status-${userData.discord_status}`;
-      avatarWrapper.appendChild(statusIndicator);
-      
-      avatarContainer.appendChild(avatarWrapper);
-      
-      // Update username
-      document.getElementById('discordUsername').textContent = userData.discord_user.global_name || userData.discord_user.username;
-      
-      // Update online status
-      const statusIndicator = document.getElementById('discordOnlineStatus');
-      statusIndicator.className = 'status-indicator status-' + userData.discord_status;
-      
-      // Update badges
-      const badgesContainer = document.getElementById('discordBadges');
-      badgesContainer.innerHTML = '';
-      
-      // Add your specific badges
-      const yourBadges = [
-        {
-          name: 'HypeSquad Bravery',
-          icon: 'https://cdn3.emoji.gg/emojis/14043-hypesquad-bravery.png'
-        },
-        {
-          name: 'Active Developer',
-          icon: 'https://cdn.discordapp.com/badge-icons/6bdc42827a38498929a4920da12695d9.png'
-        },
-        {
-          name: 'Quest Completed',
-          icon: 'https://cdn3.emoji.gg/emojis/66366-completed-a-quest.png'
-        }
-      ];
-      
-      yourBadges.forEach(badge => {
-        const badgeImg = document.createElement('img');
-        badgeImg.src = badge.icon;
-        badgeImg.alt = badge.name;
-        badgeImg.className = 'discord-badge';
-        badgeImg.title = badge.name;
-        badgesContainer.appendChild(badgeImg);
-      });
-      
-      // Update activity and connections
-      const activityContainer = document.getElementById('discordActivity');
-      const customStatusContainer = document.getElementById('discordCustomStatus');
-      
-      // Clear previous content
-      activityContainer.innerHTML = '';
-      customStatusContainer.innerHTML = '';
-      
-      // Handle custom status
-      const customStatus = userData.activities.find(activity => activity.type === 4);
-      if (customStatus && customStatus.state) {
-        const customStatusDiv = document.createElement('div');
-        customStatusDiv.className = 'custom-status';
-        
-        if (customStatus.emoji) {
-          const emojiImg = document.createElement('img');
-          emojiImg.src = `https://cdn.discordapp.com/emojis/${customStatus.emoji.id}.png`;
-          emojiImg.alt = customStatus.emoji.name;
-          emojiImg.style.width = '16px';
-          emojiImg.style.height = '16px';
-          emojiImg.style.marginRight = '5px';
-          customStatusDiv.appendChild(emojiImg);
-        }
-        
-        customStatusDiv.appendChild(document.createTextNode(customStatus.state));
-        customStatusContainer.appendChild(customStatusDiv);
-      }
-      
-      // Create container for all connections
-      const connectionsContainer = document.createElement('div');
-      connectionsContainer.className = 'connections-container';
-      
-      // Handle Spotify
-      if (userData.listening_to_spotify) {
-        const spotify = userData.spotify;
-        const spotifyDiv = document.createElement('div');
-        spotifyDiv.className = 'spotify-activity';
-        spotifyDiv.innerHTML = `
-          <img src="${spotify.album_art_url}" alt="Album Art" style="width: 24px; height: 24px; border-radius: 4px;">
-          <div class="spotify-info">
-            <span class="spotify-listening">Listening to ${spotify.song}</span>
-            <span>by ${spotify.artist}</span>
-          </div>
-        `;
-        connectionsContainer.appendChild(spotifyDiv);
-      }
-      
-      // Handle other activities and connections
-      const connections = [
-        {
-          name: 'Epic Games',
-          icon: 'https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6ca814282eca7172c6_icon_clyde_white_RGB.svg',
-          activity: userData.activities.find(a => a.name === 'Epic Games')
-        },
-        {
-          name: 'GitHub',
-          icon: 'https://github.com/favicon.ico',
-          activity: userData.activities.find(a => a.name === 'GitHub')
-        },
-        {
-          name: 'Xbox',
-          icon: 'https://assets.xboxservices.com/assets/3f/6f/3f6f6337-6806-46f9-b890-7c24001a69a3.png',
-          activity: userData.activities.find(a => a.name === 'Xbox')
-        }
-      ];
-      
-      connections.forEach(connection => {
-        if (connection.activity) {
-          const connectionDiv = document.createElement('div');
-          connectionDiv.className = 'connection-status';
-          connectionDiv.innerHTML = `
-            <img src="${connection.icon}" alt="${connection.name}" class="connection-icon">
-            <div>
-              <div class="connection-name">${connection.name}</div>
-              <div class="connection-details">
-                ${connection.activity.state || connection.activity.details || 'Online'}
-              </div>
-            </div>
-          `;
-          connectionsContainer.appendChild(connectionDiv);
-        }
-      });
-      
-      activityContainer.appendChild(connectionsContainer);
-      
-    } else {
-      throw new Error('Failed to fetch Discord status');
-    }
+    const userId = '1333091618055655448'; // Your Discord user ID
+    const apiUrl = `https://lanyard-profile-readme.vercel.app/api/${userId}?` + new URLSearchParams({
+      theme: 'dark',
+      bg: '2f3136',
+      animated: true,
+      hideDiscrim: true,
+      borderRadius: '10px',
+      idleMessage: "Probably at school!",
+      showDisplayName: true,
+      hideDecoration: false,
+      animatedDecoration: true,
+      hideStatus: false,
+      hideTimestamp: false,
+      hideClan: false,
+      hideBadges: false,
+      hideProfile: false,
+      hideActivity: 'whenNotUsed',
+      hideSpotify: false
+    });
+
+    // Create Discord card container
+    const discordCard = document.createElement('div');
+    discordCard.className = 'discord-card';
+    
+    // Create and append the image
+    const presenceImg = document.createElement('img');
+    presenceImg.src = apiUrl;
+    presenceImg.alt = 'Discord Presence';
+    presenceImg.style.width = '100%';
+    presenceImg.style.height = 'auto';
+    presenceImg.style.borderRadius = '10px';
+    
+    // Make it clickable to go to Discord profile
+    const linkWrapper = document.createElement('a');
+    linkWrapper.href = `https://discord.com/users/${userId}`;
+    linkWrapper.target = '_blank';
+    linkWrapper.appendChild(presenceImg);
+    
+    // Add to the card
+    discordCard.appendChild(linkWrapper);
+    
+    // Replace the existing discord status content
+    const discordStatus = document.getElementById('discordStatus');
+    discordStatus.innerHTML = '';
+    discordStatus.appendChild(discordCard);
+
   } catch (error) {
     console.error('Error fetching Discord status:', error);
     document.getElementById('discordStatus').innerHTML = 'Failed to load Discord status.';
@@ -795,7 +678,7 @@ By using any services, products, or content provided by the Provider, you acknow
 // Initial fetch
 fetchDiscordStatus();
 
-// Update status every 1 seconds
+// Update every minute
 setInterval(fetchDiscordStatus, 1000);
   </script>
 </body>
