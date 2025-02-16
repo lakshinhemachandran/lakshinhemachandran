@@ -605,34 +605,23 @@ By using any services, products, or content provided by the Provider, you acknow
         document.getElementById("formModal").style.display = "none";
       }
     }
+    function reloadDiscordStatus() {
+  const discordStatus = document.querySelector('.discord-status');
 
-   // Function to handle automatic refresh
-    function autoRefresh() {
-      if (!sessionStorage.getItem('manualRefresh')) {
-        location.reload();
-      }
-    }
+  if (discordStatus) {
+    discordStatus.innerHTML = `
+      <a href="https://discord.com/users/1333091618055655448">
+        <img id="discordStatus" src="https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20Something...&showDisplayName=true&timestamp=${new Date().getTime()}" />
+      </a>
+    `;
+  }
+}
 
-    // Set up auto-refresh every second
-    setInterval(autoRefresh, 1000);
+// Reload every 3 seconds
+setInterval(reloadDiscordStatus, 3000);
 
-    // Handle manual refresh detection
-    window.addEventListener('beforeunload', () => {
-      if (performance.navigation.type === 1) {
-        sessionStorage.setItem('manualRefresh', 'true');
-        setTimeout(() => {
-          sessionStorage.removeItem('manualRefresh');
-        }, 100);
-      }
-    });
-
-    // Handle animations
-    if (!sessionStorage.getItem('manualRefresh')) {
-      document.querySelectorAll('[data-animate="true"]').forEach(element => {
-        element.style.animation = 'none';
-      });
-    }
-
+  
+   
   </script>
 </body>
 </html>
