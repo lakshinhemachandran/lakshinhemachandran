@@ -478,14 +478,17 @@
       </a>
     </div>
 
+    <div class="discord-widget">
+      <h3>Join Loxly Shopping Now!</h3>
+    </div>
+
     <!-- Divider -->
     <hr>
     
     <!-- Hire Me Section -->
     <button class="hire-button" onclick="showTerms()">Hire Me</button>
   </div>
-
-  <iframe src="https://discord.com/widget?id=1325477654454865920&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  
   <!-- Project 1 -->
   <div class="project">
     <h3>Project 1: Interactive Game UI</h3>
@@ -607,42 +610,32 @@ By using any services, products, or content provided by the Provider, you acknow
       }
     }
 
-    // Function to refresh Discord status
-    function refreshDiscordStatus() {
-      const discordImg = document.querySelector('#discordStatus');
-      if (discordImg) {
-        const url = new URL(discordImg.src);
-        url.searchParams.set('t', Date.now());
-        discordImg.src = url.toString();
+   // Function to handle automatic refresh
+    function autoRefresh() {
+      if (!sessionStorage.getItem('manualRefresh')) {
+        location.reload();
       }
     }
 
-    // Function to handle animations
-    function handleAnimations() {
-      const isAutoRefresh = sessionStorage.getItem('autoRefresh') === 'true';
-      const animatedElements = document.querySelectorAll('[data-animate="true"]');
-      
-      if (isAutoRefresh) {
-        animatedElements.forEach(element => {
-          element.style.animation = 'none';
-        });
+    // Set up auto-refresh every second
+    setInterval(autoRefresh, 1000);
+
+    // Handle manual refresh detection
+    window.addEventListener('beforeunload', () => {
+      if (performance.navigation.type === 1) {
+        sessionStorage.setItem('manualRefresh', 'true');
+        setTimeout(() => {
+          sessionStorage.removeItem('manualRefresh');
+        }, 100);
       }
-    }
-
-    // Initialize
-    handleAnimations();
-
-    // Start auto-refresh immediately
-    refreshDiscordStatus();
-    
-    // Set up the refresh interval (every 1 second)
-    setInterval(refreshDiscordStatus, 1000);
-
-    // Handle manual refresh
-    window.addEventListener('load', () => {
-      sessionStorage.setItem('autoRefresh', 'false');
-      handleAnimations();
     });
+
+    // Handle animations
+    if (!sessionStorage.getItem('manualRefresh')) {
+      document.querySelectorAll('[data-animate="true"]').forEach(element => {
+        element.style.animation = 'none';
+      });
+    }
 
   </script>
 </body>
