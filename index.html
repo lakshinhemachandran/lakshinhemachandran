@@ -607,7 +607,60 @@ By using any services, products, or content provided by the Provider, you acknow
         document.getElementById("formModal").style.display = "none";
       }
     }
+    unction formatUTCDate(date) {
+      return date.getUTCFullYear() + '-' +
+             String(date.getUTCMonth() + 1).padStart(2, '0') + '-' +
+             String(date.getUTCDate()).padStart(2, '0') + ' ' +
+             String(date.getUTCHours()).padStart(2, '0') + ':' +
+             String(date.getUTCMinutes()).padStart(2, '0') + ':' +
+             String(date.getUTCSeconds()).padStart(2, '0');
+    }
 
+    // Function to update clock and Discord status
+    function updateElements() {
+      // Update UTC clock
+      const now = new Date();
+      document.getElementById('utcClock').textContent = formatUTCDate(now) + ' UTC';
+
+      // Update Discord status
+      const discordImg = document.getElementById('discordStatus');
+      if (discordImg) {
+        discordImg.src = `https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20Something...&showDisplayName=true&t=${Date.now()}`;
+      }
+    }
+
+    // Function to handle animations
+    function handleAnimations() {
+      // Check if this is an automatic refresh
+      const isAutoRefresh = sessionStorage.getItem('autoRefresh') === 'true';
+      
+      // Get all elements with animations
+      const animatedElements = document.querySelectorAll('[data-animate="true"]');
+      
+      // If it's an auto refresh, remove animation classes
+      if (isAutoRefresh) {
+        animatedElements.forEach(element => {
+          element.style.animation = 'none';
+        });
+      }
+    }
+
+    // Initialize
+    handleAnimations();
+    updateElements();
+
+    // Set up the refresh interval (1 second)
+    setInterval(() => {
+      sessionStorage.setItem('autoRefresh', 'true');
+      updateElements();
+    }, 1000);
+
+    // Handle manual refresh
+    window.addEventListener('beforeunload', () => {
+      if (performance.navigation.type === 1) {
+        sessionStorage.setItem('autoRefresh', 'false');
+      }
+    });
 
   </script>
 </body>
