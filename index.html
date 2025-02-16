@@ -428,8 +428,13 @@
 </head>
 <body>
   <div class="container">
+    <!-- UTC Clock -->
+    <div class="utc-clock" style="font-size: 1.2em; margin-bottom: 20px; color: #0047ab;">
+      <span id="utcClock">2025-02-16 02:41:32 UTC</span>
+    </div>
+
     <!-- Profile Section -->
-    <div class="profile">
+    <div class="profile" data-animate="true">
       <img src="https://yt3.googleusercontent.com/s2biSQ45avQeRfpLopl7GEuNoKro1vDg3ejQvBaBHRVIrv2wI0BHvS3A5cqLqmWS7VQ0TVw=s160-c-k-c0x00ffffff-no-rj" alt="Profile Picture">
       <h1>QuantumDev</h1>
       <div class="job-description">
@@ -441,20 +446,20 @@
     </div>
 
     <!-- Introduction -->
-    <div class="intro">
+    <div class="intro" data-animate="true">
       Hi! I'm Lakshin, a teenage developer with 3+ years of experience in Roblox Studio.
       My online name is QuantumDev.
-      I’m passionate about coding, designing, and creating innovative projects. 
+      I'm passionate about coding, designing, and creating innovative projects. 
       My goal is to become a Full Stack Developer and start my own company in the future! 
       If you're looking to hire me for my Roblox Studio skills, feel free to reach out through my Discord server linked below.
       <br>
       <br>
-      <i> <b> "Don't Give Up On Life Or Life Will Give Up On You" <b> <i>
-      <p> - Lakshin <p>
+      <i> <b> "Don't Give Up On Life Or Life Will Give Up On You" </b> </i>
+      <p> - Lakshin </p>
     </div>
 
     <!-- Icons Section -->
-    <div class="icons">
+    <div class="icons" data-animate="true">
       <a href="https://outlook.live.com/mail/0/deeplink/compose/?mailtouri=mailto%3alh140313%40outlook.com&bO=1&sessionId=ca690e7f-e2c9-475a-a290-e3a3ef5a8cf8" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/000000/email-open.png" alt="Email">
       </a>
@@ -471,19 +476,19 @@
         <img src="https://img.icons8.com/ios-filled/50/000000/roblox.png" alt="Roblox">
       </a>
     </div>
-    <a href="https://discord.com/users/1333091618055655448"><img src="https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20Something...&showDisplayName=true" /></a>
 
+    <div class="discord-status" data-animate="true">
+      <a href="https://discord.com/users/1333091618055655448">
+        <img id="discordStatus" src="https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20Something...&showDisplayName=true" />
+      </a>
+    </div>
 
     <!-- Divider -->
     <hr>
     
     <!-- Hire Me Section -->
     <button class="hire-button" onclick="showTerms()">Hire Me</button>
-
   </div>
-<!-- My Work Section -->
-<div class="my-work">
-  <h2>My Work</h2>
 
   <!-- Project 1 -->
   <div class="project">
@@ -742,7 +747,61 @@ By using any services, products, or content provided by the Provider, you acknow
         document.getElementById("formModal").style.display = "none";
       }
     }
+    // Function to format date as YYYY-MM-DD HH:MM:SS
+    function formatUTCDate(date) {
+      return date.getUTCFullYear() + '-' +
+             String(date.getUTCMonth() + 1).padStart(2, '0') + '-' +
+             String(date.getUTCDate()).padStart(2, '0') + ' ' +
+             String(date.getUTCHours()).padStart(2, '0') + ':' +
+             String(date.getUTCMinutes()).padStart(2, '0') + ':' +
+             String(date.getUTCSeconds()).padStart(2, '0');
+    }
 
+    // Function to update clock and Discord status
+    function updateElements() {
+      // Update UTC clock
+      const now = new Date();
+      document.getElementById('utcClock').textContent = formatUTCDate(now) + ' UTC';
+
+      // Update Discord status
+      const discordImg = document.getElementById('discordStatus');
+      if (discordImg) {
+        discordImg.src = `https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20Something...&showDisplayName=true&t=${Date.now()}`;
+      }
+    }
+
+    // Function to handle animations
+    function handleAnimations() {
+      // Check if this is an automatic refresh
+      const isAutoRefresh = sessionStorage.getItem('autoRefresh') === 'true';
+      
+      // Get all elements with animations
+      const animatedElements = document.querySelectorAll('[data-animate="true"]');
+      
+      // If it's an auto refresh, remove animation classes
+      if (isAutoRefresh) {
+        animatedElements.forEach(element => {
+          element.style.animation = 'none';
+        });
+      }
+    }
+
+    // Initialize
+    handleAnimations();
+    updateElements();
+
+    // Set up the refresh interval (1 second)
+    setInterval(() => {
+      sessionStorage.setItem('autoRefresh', 'true');
+      updateElements();
+    }, 1000);
+
+    // Handle manual refresh
+    window.addEventListener('beforeunload', () => {
+      if (performance.navigation.type === 1) {
+        sessionStorage.setItem('autoRefresh', 'false');
+      }
+    });
   </script>
 </body>
 </html>
