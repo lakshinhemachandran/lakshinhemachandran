@@ -424,6 +424,11 @@
   z-index: 3;
 }
 
+.lanyard-img img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 10px;
+        }
   </style>
 </head>
 <body>
@@ -436,7 +441,7 @@
         UI Dev
       </div>
       <div class="job-description">
-        Owner & Main Developer @ LuckySAM Productions | Co-Owner, Lead HR, Lead Developer @ Waitrose Shopping | Former Developer @ Swirlys Cafe (deprecated) | Developer @ Pentagon Group | Owner @ Globe Hangout
+        Owner & Main Developer @ LuckySAM Productions | HR & Developer @ Loxly Shopping | Former Developer @ Swirlys Cafe (deprecated) | Developer @ Pentagon Group | Owner @ Globe Hangout
       </div>
     </div>
 
@@ -445,12 +450,12 @@
       Hi! I'm Lakshin, a teenage developer with 3+ years of experience in Roblox Studio.
       My online name is QuantumDev.
       I'm passionate about coding, designing, and creating innovative projects. 
-      My goal is to become a Full Stack Developer and start my own company in the future! 
+      My goal is to become a Full Stack Developer and start my own company in the future! My Best Friend is Noah(not his real name), you can contact him at @noahcoding on Discord! 
       If you're looking to hire me for my Roblox Studio skills, feel free to reach out through my Discord server linked below.
       <br>
       <br>
       <i> <b> "Don't Give Up On Life Or Life Will Give Up On You" </b> </i>
-      <p> - Lakshin </p>
+      <p> - Quantum </p>
     </div>
 
     <!-- Icons Section -->
@@ -461,7 +466,7 @@
       <a href="https://github.com/lakshinhemachandran" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub">
       </a>
-      <a href="https://discord.gg/ATk4wsJP42" target="_blank">
+      <a href="https://discord.com/users/1333091618055655448" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/000000/discord-logo.png" alt="Discord">
       </a>
       <a href="https://youtube.com/@ItsQuantumDev_YT" target="_blank">
@@ -472,10 +477,10 @@
       </a>
     </div>
 
-    <div class="discord-status" data-animate="true">
-      <a href="https://discord.com/users/1333091618055655448">
-        <img id="discordStatus" src="https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20Something...&showDisplayName=true" />
-      </a>
+    <div class="lanyard-img">
+        <a href="https://discord.com/users/1333091618055655448">
+            <img id="lanyard-img" src="https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20something...&showDisplayName=true" alt="Discord Status">
+        </a>
     </div>
 
     <!-- Divider -->
@@ -606,24 +611,12 @@ By using any services, products, or content provided by the Provider, you acknow
       }
     }
 
-   function reloadDiscordStatus() {
-            const discordStatusDiv = document.querySelector('.discord-status');
-            if (discordStatusDiv) {
-                fetch(window.location.href) // Fetch the current page
-                    .then(response => response.text())
-                    .then(data => {
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(data, 'text/html');
-                        const newStatus = doc.querySelector('.discord-status');
-                        if (newStatus) {
-                            discordStatusDiv.innerHTML = newStatus.innerHTML;
-                        }
-                    })
-                    .catch(error => console.error('Error reloading Discord status:', error));
-            }
+   function updateLanyardImage() {
+            document.getElementById("lanyard-img").src = `https://lanyard.cnrad.dev/api/1333091618055655448?${Date.now()}idleMessage=Developing%20something...&showDisplayName=true`;
         }
 
-        setInterval(reloadDiscordStatus, 3000);
+        // Update the image every second
+        setInterval(updateLanyardImage, 1000);
   </script>
 </body>
 </html>
