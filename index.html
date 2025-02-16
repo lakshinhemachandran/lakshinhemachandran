@@ -428,11 +428,6 @@
 </head>
 <body>
   <div class="container">
-    <!-- UTC Clock -->
-    <div class="utc-clock" style="font-size: 1.2em; margin-bottom: 20px; color: #FFFFFF;">
-      <span id="utcClock">2025-02-16 02:41:32 UTC</span>
-    </div>
-
     <!-- Profile Section -->
     <div class="profile" data-animate="true">
       <img src="https://yt3.googleusercontent.com/s2biSQ45avQeRfpLopl7GEuNoKro1vDg3ejQvBaBHRVIrv2wI0BHvS3A5cqLqmWS7VQ0TVw=s160-c-k-c0x00ffffff-no-rj" alt="Profile Picture">
@@ -489,7 +484,6 @@
     <!-- Hire Me Section -->
     <button class="hire-button" onclick="showTerms()">Hire Me</button>
   </div>
-
   <!-- Project 1 -->
   <div class="project">
     <h3>Project 1: Interactive Game UI</h3>
@@ -591,6 +585,8 @@ By using any services, products, or content provided by the Provider, you acknow
   </div>
 
   <script>
+    <script>
+    // Modal Functions
     function showTerms() {
       document.getElementById("termsModal").style.display = "block";
     }
@@ -602,27 +598,15 @@ By using any services, products, or content provided by the Provider, you acknow
 
     // Close modal when clicking outside of it
     window.onclick = function(event) {
-      if (event.target === document.getElementById("termsModal") || event.target === document.getElementById("formModal")) {
+      if (event.target === document.getElementById("termsModal") || 
+          event.target === document.getElementById("formModal")) {
         document.getElementById("termsModal").style.display = "none";
         document.getElementById("formModal").style.display = "none";
       }
     }
-    unction formatUTCDate(date) {
-      return date.getUTCFullYear() + '-' +
-             String(date.getUTCMonth() + 1).padStart(2, '0') + '-' +
-             String(date.getUTCDate()).padStart(2, '0') + ' ' +
-             String(date.getUTCHours()).padStart(2, '0') + ':' +
-             String(date.getUTCMinutes()).padStart(2, '0') + ':' +
-             String(date.getUTCSeconds()).padStart(2, '0');
-    }
 
-    // Function to update clock and Discord status
-    function updateElements() {
-      // Update UTC clock
-      const now = new Date();
-      document.getElementById('utcClock').textContent = formatUTCDate(now) + ' UTC';
-
-      // Update Discord status
+    // Function to update Discord status
+    function updateDiscordStatus() {
       const discordImg = document.getElementById('discordStatus');
       if (discordImg) {
         discordImg.src = `https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20Something...&showDisplayName=true&t=${Date.now()}`;
@@ -631,13 +615,9 @@ By using any services, products, or content provided by the Provider, you acknow
 
     // Function to handle animations
     function handleAnimations() {
-      // Check if this is an automatic refresh
       const isAutoRefresh = sessionStorage.getItem('autoRefresh') === 'true';
-      
-      // Get all elements with animations
       const animatedElements = document.querySelectorAll('[data-animate="true"]');
       
-      // If it's an auto refresh, remove animation classes
       if (isAutoRefresh) {
         animatedElements.forEach(element => {
           element.style.animation = 'none';
@@ -647,12 +627,12 @@ By using any services, products, or content provided by the Provider, you acknow
 
     // Initialize
     handleAnimations();
-    updateElements();
+    updateDiscordStatus();
 
-    // Set up the refresh interval (1 second)
+    // Set up 1-second refresh interval
     setInterval(() => {
       sessionStorage.setItem('autoRefresh', 'true');
-      updateElements();
+      updateDiscordStatus();
     }, 1000);
 
     // Handle manual refresh
