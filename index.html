@@ -484,6 +484,8 @@
     <!-- Hire Me Section -->
     <button class="hire-button" onclick="showTerms()">Hire Me</button>
   </div>
+
+  <iframe src="https://discord.com/widget?id=1325477654454865920&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
   <!-- Project 1 -->
   <div class="project">
     <h3>Project 1: Interactive Game UI</h3>
@@ -605,11 +607,13 @@ By using any services, products, or content provided by the Provider, you acknow
       }
     }
 
-    // Function to update Discord status
-    function updateDiscordStatus() {
-      const discordImg = document.getElementById('discordStatus');
+    // Function to refresh Discord status
+    function refreshDiscordStatus() {
+      const discordImg = document.querySelector('#discordStatus');
       if (discordImg) {
-        discordImg.src = `https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20Something...&showDisplayName=true&t=${Date.now()}`;
+        const url = new URL(discordImg.src);
+        url.searchParams.set('t', Date.now());
+        discordImg.src = url.toString();
       }
     }
 
@@ -627,19 +631,17 @@ By using any services, products, or content provided by the Provider, you acknow
 
     // Initialize
     handleAnimations();
-    updateDiscordStatus();
 
-    // Set up 1-second refresh interval
-    setInterval(() => {
-      sessionStorage.setItem('autoRefresh', 'true');
-      updateDiscordStatus();
-    }, 1000);
+    // Start auto-refresh immediately
+    refreshDiscordStatus();
+    
+    // Set up the refresh interval (every 1 second)
+    setInterval(refreshDiscordStatus, 1000);
 
     // Handle manual refresh
-    window.addEventListener('beforeunload', () => {
-      if (performance.navigation.type === 1) {
-        sessionStorage.setItem('autoRefresh', 'false');
-      }
+    window.addEventListener('load', () => {
+      sessionStorage.setItem('autoRefresh', 'false');
+      handleAnimations();
     });
 
   </script>
