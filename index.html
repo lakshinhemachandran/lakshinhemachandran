@@ -479,7 +479,7 @@
 
     <div class="lanyard-img">
         <a href="https://discord.com/users/1333091618055655448">
-            <img id="lanyard-img" src="https://lanyard.cnrad.dev/api/1333091618055655448?idleMessage=Developing%20something...&showDisplayName=true" alt="Discord Status">
+            <img id="lanyard-img" src="https://lanyard.cnrad.dev/api/1333091618055655448" alt="Discord Status">
         </a>
     </div>
 
@@ -590,7 +590,7 @@ By using any services, products, or content provided by the Provider, you acknow
     </div>
   </div>
 
-  <script>
+
     <script>
     // Modal Functions
     function showTerms() {
@@ -610,13 +610,12 @@ By using any services, products, or content provided by the Provider, you acknow
         document.getElementById("formModal").style.display = "none";
       }
     }
-
-   function updateLanyardImage() {
+    function updateLanyardImage() {
             document.getElementById("lanyard-img").src = `https://lanyard.cnrad.dev/api/1333091618055655448?${Date.now()}`;
         }
 
         // Update the image every second
         setInterval(updateLanyardImage, 1000);
-  </script>
+    </script>
 </body>
 </html>
