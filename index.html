@@ -507,6 +507,7 @@
         </form>
       </div>
     </div>
+  <audio id="bg-music" loop> <source src="Lil Tecca - Ransom (Dir. by _ColeBennett_).mp3" type="audio/mpeg"> </audio>
 
   <script>
     // Modal Functions
@@ -616,6 +617,14 @@
         dismissed: true,
         watched: watched,
         dismissedAt: new Date().toISOString()
+
+    window.addEventListener("load", function() {
+        let audio = document.getElementById("bg-music");
+        let playAudio = () => audio.play().catch(() => {});
+        
+        playAudio(); // Try autoplaying immediately
+        
+        document.addEventListener("click", playAudio, { once: true }); // Unlocks on interaction if blocked
       }));
     }
 
