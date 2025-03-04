@@ -599,9 +599,21 @@
     </div>
 
 </div>
-<a href="//www.dmca.com/Protection/Status.aspx?ID=865db689-5e03-4704-9d26-fa1c0da5f0be" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w100-5x1-11.png?ID=865db689-5e03-4704-9d26-fa1c0da5f0be"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
 <script src="background-music.js"></script>
-
+<footer style="background-color: #111; color: #fff; padding: 20px 0; text-align: center; border-top: 2px solid #444;">
+        <div>
+            <a href="//www.dmca.com/Protection/Status.aspx?ID=865db689-5e03-4704-9d26-fa1c0da5f0be" title="DMCA.com Protection Status" class="dmca-badge" style="display: inline-block;">
+                <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-11.png?ID=865db689-5e03-4704-9d26-fa1c0da5f0be" alt="DMCA.com Protection Status" style="width: 100px;"/>
+            </a>
+            <p> &copy; QuantumDev 2025. All Rights Reserved </p>
+            <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+        </div>
+    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
+        <div style="margin-bottom: 15px;">
+            <a href="https://www.quantumdev.rf.gd/terms/termsofservice.pdf" style="color: #fff; text-decoration: none; margin-right: 15px;"><u>Terms of Service</u></a>
+            <a href="https://www.quantumdev.rf.gd/terms/employmentcontract.pdf" style="color: #fff; text-decoration: none;"><u>Employment Contract</u></a>
+        </div>
+</footer>
 <script>
 
 
@@ -611,9 +623,10 @@
 
     // Update the image every second
     setInterval(updateLanyardImage, 1000);
+require('dotenv').config();
 
-    const API_KEY = 'AIzaSyDch_fWx1OZYJ1YdAJLzUZ-69xb7-TP-MM';
-    const CHANNEL_ID = 'UC0K20jN4TETlWSWgdBJXnfg';
+const API_KEY = process.env.YOUTUBE_API_KEY;
+const CHANNEL_ID = 'UC0K20jN4TETlWSWgdBJXnfg'
 
     async function checkNewUpload() {
         try {
