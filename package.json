@@ -1,0 +1,14 @@
+{
+  "name": "quantumdev-website",
+  "version": "1.0.0",
+  "description": "QuantumDev's Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node background-music.js"
+  },
+  "author": "Lakshin Hemachandran",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
