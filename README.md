@@ -27,4 +27,4 @@
                 alt="Discord Status">
         </a>
     </div>
-![](https://komarev.com/ghpvc/?username=lakshinhemachandran&style=flat-square&abbreviated=true)
+[![PROFILE VIEWS] (https://komarev.com/ghpvc/?username=lakshinhemachandran&style=flat-square&abbreviated=true)]
