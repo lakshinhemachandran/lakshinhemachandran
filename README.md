@@ -1,6 +1,6 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Georgia&pause=1000&color=FFFFFF&width=435&lines=QuantumDev)](https://git.io/typing-svg)
 <p align="center">
-
+![Profile Views](https://komarev.com/ghpvc/?username=lakshinhemachandran&style=flat-square&label=Profile%20views)
 
 <div class="icons" data-animate="true">
         <a href="https://outlook.live.com/mail/0/deeplink/compose/?mailtouri=mailto%3alh140313%40outlook.com&bO=1&sessionId=ca690e7f-e2c9-475a-a290-e3a3ef5a8cf8"
@@ -27,4 +27,3 @@
                 alt="Discord Status">
         </a>
     </div>
-[![PROFILE VIEWS] (https://komarev.com/ghpvc/?username=lakshinhemachandran&style=flat-square&abbreviated=true)]
