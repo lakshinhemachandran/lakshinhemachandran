@@ -1,8 +1,4 @@
 <!-- Banner -->
-<p align="center">
-  <img src="https://quantumdev.cc/images/quantum.png" alt="QuantumDev Logo" width="150"/>
-</p>
-
 <h1 align="center">Hey, I'm Lakshin 👋</h1>
 <h3 align="center">Also known as QuantumDev — Web Developer & Creator</h3>
 
