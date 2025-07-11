@@ -1,6 +1,6 @@
 <!-- Banner -->
 <h1 align="center">Hey, I'm Lakshin 👋</h1>
-<h3 align="center">Also known as QuantumDev — Web Developer & Creator</h3>
+<h3 align="center">Also known as QuantumDev</h3>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=lakshinhemachandran&label=Profile%20Views&color=blue&style=for-the-badge" alt="Profile Views" />
