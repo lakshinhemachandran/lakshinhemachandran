@@ -42,7 +42,6 @@
 
 [![Website](https://img.shields.io/badge/-quantumdev.cc-000?logo=globe&logoColor=white&style=for-the-badge)](https://quantumdev.cc)
 [![GitHub](https://img.shields.io/badge/-@lakshinhemachandran-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/lakshinhemachandran)
-[![Discord](https://img.shields.io/badge/-@lakshinhemachandran-5865F2?logo=discord&logoColor=white&style=for-the-badge)](https://discord.com/users/1348440369733439629)
 
 ---
 
