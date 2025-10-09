@@ -18,6 +18,10 @@
 ## Holopin
 [![An image of @lakshinhemachandran's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/lakshinhemachandran)](https://holopin.io/@lakshinhemachandran)
 
+## Devmetics
+<!--START_SECTION:waka-->
+<!--END_SECTION:waka-->
+
 ## 🛠 Tech Stack
 
 > Tools and technologies I'm using or learning
