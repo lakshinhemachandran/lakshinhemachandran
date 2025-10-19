@@ -37,6 +37,10 @@
 ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)
 
+## Stats
+![lakshinhemachandran's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=lakshinhemachandran&theme=vue-dark&show_icons=true&hide_border=true&layout=compact)
+![lakshinhemachandran's Stats](https://github-readme-stats.vercel.app/api?username=lakshinhemachandran&theme=vue-dark&show_icons=true&hide_border=true&count_private=true)
+![lakshinhemachandran's Streak](https://github-readme-streak-stats.herokuapp.com/?user=lakshinhemachandran&theme=vue-dark&hide_border=true)
 ---
 
 ## 📫 Connect With Me
