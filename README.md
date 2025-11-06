@@ -21,6 +21,9 @@
 ## Learning
 [![roadmap.sh](https://roadmap.sh/card/wide/690bef36ce70eef65bf07bce?variant=dark)](https://roadmap.sh)
 
+## daily.dev
+<a href="https://app.daily.dev/lakshinhemachandran"><img src="https://api.daily.dev/devcards/v2/jgTZYJDchnQ9rOLX4AWct.png?r=j20&type=default" width="356" alt="Lakshin Hemachandran's Dev Card"/></a>
+
 ## 🛠 Tech Stack
 
 > Tools and technologies I'm using or learning
