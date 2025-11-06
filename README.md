@@ -58,9 +58,10 @@
   <a href="https://github.com/lakshinhemachandran">
     <img src="https://img.shields.io/badge/-@lakshinhemachandran-181717?logo=github&logoColor=white&style=for-the-badge" alt="GitHub" />
   </a>
-  <a href="https://app.daily.dev/lakshinhemachandran">
-    <img src="https://img.shields.io/badge/-daily.dev-CE3DF3?logo=daily.dev&logoColor=white&style=for-the-badge" alt="daily.dev" />
-  </a>
+</p>
+
+<p align="center">
+  <a href="https://app.daily.dev/lakshinhemachandran"><img src="https://api.daily.dev/devcards/v2/jgTZYJDchnQ9rOLX4AWct.png?type=wide&r=oqk" width="652" alt="Lakshin Hemachandran's Dev Card"/></a>
 </p>
 
 ---
