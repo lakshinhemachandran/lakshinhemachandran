@@ -27,17 +27,11 @@
 
 ## 📊 GitHub Stats
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=lakshinhemachandran&theme=vue-dark&show_icons=true&hide_border=true&count_private=true" alt="GitHub Stats" />
-</p>
+![lakshinhemachandran's Stats](https://github-readme-stats.vercel.app/api?username=lakshinhemachandran&theme=vue-dark&show_icons=true&hide_border=true&count_private=true)
 
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=lakshinhemachandran&theme=vue-dark&hide_border=true" alt="GitHub Streak" />
-</p>
+![lakshinhemachandran's Streak](https://github-readme-streak-stats.herokuapp.com/?user=lakshinhemachandran&theme=vue-dark&hide_border=true)
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lakshinhemachandran&theme=vue-dark&show_icons=true&hide_border=true&layout=compact" alt="Top Languages" />
-</p>
+![lakshinhemachandran's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=lakshinhemachandran&theme=vue-dark&show_icons=true&hide_border=true&layout=compact)
 
 ## 🏆 Achievements
 
@@ -55,13 +49,7 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="https://app.daily.dev/lakshinhemachandran">
-    <img src="https://api.daily.dev/devcards/v2/jgTZYJDchnQ9rOLX4AWct.png?r=j20&type=default" width="356" alt="Lakshin's Dev Card"/>
-  </a>
-</p>
-
-## 📫 Connect With Me
+## 🌐 Socials
 
 <p align="center">
   <a href="https://lakshin.dev">
@@ -69,6 +57,9 @@
   </a>
   <a href="https://github.com/lakshinhemachandran">
     <img src="https://img.shields.io/badge/-@lakshinhemachandran-181717?logo=github&logoColor=white&style=for-the-badge" alt="GitHub" />
+  </a>
+  <a href="https://app.daily.dev/lakshinhemachandran">
+    <img src="https://img.shields.io/badge/-daily.dev-CE3DF3?logo=daily.dev&logoColor=white&style=for-the-badge" alt="daily.dev" />
   </a>
 </p>
 
