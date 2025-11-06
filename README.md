@@ -18,6 +18,8 @@
 ## Holopin
 [![An image of @lakshinhemachandran's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/lakshinhemachandran)](https://holopin.io/@lakshinhemachandran)
 
+## Learning
+[![roadmap.sh](https://roadmap.sh/card/wide/690bef36ce70eef65bf07bce?variant=dark)](https://roadmap.sh)
 
 ## 🛠 Tech Stack
 
